@@ -1,11 +1,14 @@
 require('dotenv').config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const dns = require("dns");
 const { URL } = require("url");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/public", express.static(`${process.cwd()}/public`));
